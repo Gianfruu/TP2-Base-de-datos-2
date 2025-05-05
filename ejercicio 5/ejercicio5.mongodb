@@ -1,0 +1,21 @@
+//Ejercicio 5: Agregación Dada una colección ventas con campos producto, cantidad y precio_unitario, calcula el total de ventas por producto usando $group y $sum.
+
+db.createCollection("ventas");
+
+db.ventas.insertMany([
+    { producto: "Monitor", cantidad: 2, precio_unitario: 150, total: 300 },
+    { producto: "Teclado", cantidad: 5, precio_unitario: 20, total: 100 },
+    { producto: "Monitor", cantidad: 1, precio_unitario: 150, total: 150 },
+    { producto: "Mouse", cantidad: 4, precio_unitario: 10, total: 40 },
+    { producto: "Teclado", cantidad: 3, precio_unitario: 20, total: 60 }
+  ]);
+
+
+  db.ventas.aggregate([
+    {
+      $group: {
+        _id: "$producto",
+        total_ventas: { $sum: "$total" }
+      }
+    }
+  ]);

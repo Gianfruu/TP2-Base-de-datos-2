@@ -1,0 +1,19 @@
+//Ejercicio 6: Índices Crea un índice compuesto sobre los campos apellido y nombre en una colección de clientes.
+
+db.createCollection('clientes');
+
+db.dropDatabase();
+
+db.clientes.insertMany([
+  { nombre: "Laura", apellido: "Gómez" },
+  { nombre: "Pedro", apellido: "Martínez" },
+  { nombre: "Ana", apellido: "Torres" },
+  { nombre: "Juan", apellido: "Ramírez" },
+  { nombre: "Carla", apellido: "Mendoza" }
+]);
+
+db.clientes.createIndex({ nombre: 1, apellido: 1 }, { unique: true });
+
+
+
+db.clientes.find({ nombre: "Laura", apellido: "Gómez" });
