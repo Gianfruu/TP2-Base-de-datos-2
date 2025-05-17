@@ -1,0 +1,11 @@
+//Ejercicio 4: Documentos embebidos Agrega un campo direccion que incluya calle, ciudad y codigo_postal.
+
+db.empleados.updateOne(
+    { _id: ObjectId('681041772c08aa1673d861e0') },
+    { $set: { direccion: { calle: "Av. Cabrera 2135", ciudad: "Bahia Blanca", codigo: "8000" } } }
+);
+
+db.empleados.updateOne(
+    { _id: ObjectId('681044cd2c08aa1673d861e1') },
+    { $set: { direccion: { calle: "Undiando 351", ciudad: "Bahia Blanca", codigo: "8000" } } }
+);
